@@ -9,7 +9,8 @@ object AdapterArray {
 
     fun findSteps(fileName: String): Int {
         println("reading lines?")
-        return FileReader.readLinesAsInts(fileName)
+        return FileReader
+            .readLinesAsInts(fileName)
             .toList()
             .sorted()
             .fold(ScanningContext()) {context, joltage -> context.plugInAdapter(joltage)}

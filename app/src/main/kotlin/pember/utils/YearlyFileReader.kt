@@ -1,11 +1,11 @@
 package pember.utils
 
-object FileReader {
+class YearlyFileReader(private val year: Int) {
     /**
      * Read the given aoc2020 file as a [Sequence] of lines
      */
     fun readLines(fileName: String): Sequence<String>  =
-        this.javaClass.getResource("/aoc2020/${fileName}")
+        this.javaClass.getResource("/aoc${year}/${fileName}")
             // will need to parametrize this for next year
             .readText()
             .split("\n")
