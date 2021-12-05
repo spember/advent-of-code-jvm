@@ -16,4 +16,16 @@ class Part1Test {
         assertThat(SonarSweep.deeperScan("day1-test.txt")).isEqualTo(5)
         assertThat(SonarSweep.deeperScan("day1.txt")).isEqualTo(1150)
     }
+
+    @Test
+    fun `day2 - Puzzle1`() {
+        assertThat(Dive.basicDive("day2-test.txt")).isEqualTo(150)
+        assertThat(Dive.basicDive("day2.txt")).isEqualTo(1840243)
+    }
+
+    @Test
+    fun `day2 - Puzzle2`() {
+        assertThat(Dive.aim("day2-test.txt")).isEqualTo(900)
+        assertThat(Dive.aim("day2.txt")).isEqualTo(1727785422)
+    }
 }
