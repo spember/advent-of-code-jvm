@@ -28,4 +28,16 @@ class Part1Test {
         assertThat(Dive.aim("day2-test.txt")).isEqualTo(900)
         assertThat(Dive.aim("day2.txt")).isEqualTo(1727785422)
     }
+
+    @Test
+    fun `day3 - Puzzle1`() {
+        assertThat(BinaryDiagnostic("day3-test.txt").diagnosticReport()).isEqualTo(198)
+        assertThat(BinaryDiagnostic("day3.txt").diagnosticReport()).isEqualTo(4139586)
+    }
+
+    @Test
+    fun `day3 - Puzzle2`() {
+        assertThat(BinaryDiagnostic("day3-test.txt").lifeSupportRating()).isEqualTo(230)
+        assertThat(BinaryDiagnostic("day3.txt").lifeSupportRating()).isEqualTo(1800151)
+    }
 }
