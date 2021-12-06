@@ -40,4 +40,16 @@ class Part1Test {
         assertThat(BinaryDiagnostic("day3-test.txt").lifeSupportRating()).isEqualTo(230)
         assertThat(BinaryDiagnostic("day3.txt").lifeSupportRating()).isEqualTo(1800151)
     }
+
+    @Test
+    fun `day4 - Puzzle1`() {
+        assertThat(GiantSquid("day4-test.txt").findWinningBoardScore()).isEqualTo(4512)
+        assertThat(GiantSquid("day4.txt").findWinningBoardScore()).isEqualTo(2745)
+    }
+
+    @Test
+    fun `day4 - Puzzle2`() {
+        assertThat(GiantSquid("day4-test.txt").findLosingBoardScore()).isEqualTo(1924)
+        assertThat(GiantSquid("day4.txt").findLosingBoardScore()).isEqualTo(6594)
+    }
 }
