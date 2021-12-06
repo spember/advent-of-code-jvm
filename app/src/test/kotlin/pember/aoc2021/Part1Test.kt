@@ -52,4 +52,16 @@ class Part1Test {
         assertThat(GiantSquid("day4-test.txt").findLosingBoardScore()).isEqualTo(1924)
         assertThat(GiantSquid("day4.txt").findLosingBoardScore()).isEqualTo(6594)
     }
+
+    @Test
+    fun `day5 - Puzzle1`() {
+        assertThat(HydrothermalVenture("day5-test.txt").findBasicOverLaps()).isEqualTo(5)
+        assertThat(HydrothermalVenture("day5.txt").findBasicOverLaps()).isEqualTo(5373)
+    }
+
+    @Test
+    fun `day5 - Puzzle2`() {
+        assertThat(HydrothermalVenture("day5-test.txt").findOverLapsWithDiagonal()).isEqualTo(12)
+        assertThat(HydrothermalVenture("day5.txt").findOverLapsWithDiagonal()).isEqualTo(21514)
+    }
 }

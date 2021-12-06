@@ -30,7 +30,6 @@ class BinaryDiagnostic(private val fileName: String) {
         // for each number, tally the posit
 
         val numbers = parse(fileName).toList()
-        println("Full list = ${numbers.toList()}")
         val generator = reduceToLifeSupport(numbers, ONE) {tallyPosition -> tallyPosition.most()}
         val scrubber = reduceToLifeSupport(numbers, ZERO) {tallyPosition -> tallyPosition.least()}
         return generator * scrubber

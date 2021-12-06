@@ -22,7 +22,6 @@ class GiantSquid(private val fileName: String) {
             println("No bingo!")
             0
         } else {
-            println(bingo.findUnmarkedSpaceValues().sum().toString() +" and current space is ${currentScore}")
             bingo.findUnmarkedSpaceValues().sum() * currentScore
         }
     }
@@ -39,7 +38,6 @@ class GiantSquid(private val fileName: String) {
             remainingBoards = boards.filter { !it.hasBingo() }
         }
 
-        println("Last board? ${remainingBoards}")
         val remainingBoard = remainingBoards.first()
         remainingBoard.display()
 
@@ -47,7 +45,6 @@ class GiantSquid(private val fileName: String) {
             currentScore = scoreQueue.poll()
             remainingBoard.mark(currentScore)
         }
-        println("sum ${remainingBoard.findUnmarkedSpaceValues().sum()}, ${currentScore}")
         remainingBoard.display()
         return remainingBoard.findUnmarkedSpaceValues().sum()*currentScore
 
