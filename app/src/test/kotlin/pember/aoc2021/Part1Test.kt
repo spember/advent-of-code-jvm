@@ -64,4 +64,17 @@ class Part1Test {
         assertThat(HydrothermalVenture("day5-test.txt").findOverLapsWithDiagonal()).isEqualTo(12)
         assertThat(HydrothermalVenture("day5.txt").findOverLapsWithDiagonal()).isEqualTo(21514)
     }
+
+    @Test
+    fun `day6- Puzzle1`() {
+        assertThat(LanternfishSpawner("day6-test.txt").simulate(18)).isEqualTo(26)
+        assertThat(LanternfishSpawner("day6-test.txt").simulate(80)).isEqualTo(5934)
+        assertThat(LanternfishSpawner("day6.txt").simulate(80)).isEqualTo(374994)
+    }
+
+    @Test
+    fun `day6- Puzzle2`() {
+        assertThat(LanternfishSpawner("day6-test.txt").simulate(256)).isEqualTo(26984457539)
+        assertThat(LanternfishSpawner("day6.txt").simulate(256)).isEqualTo(1686252324092)
+    }
 }
