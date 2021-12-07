@@ -77,4 +77,16 @@ class Part1Test {
         assertThat(LanternfishSpawner("day6-test.txt").simulate(256)).isEqualTo(26984457539)
         assertThat(LanternfishSpawner("day6.txt").simulate(256)).isEqualTo(1686252324092)
     }
+
+    @Test
+    fun `day7 - Puzzle1`() {
+        assertThat(TheTreacheryOfWhales("day7-test.txt").alignCrabs()).isEqualTo(37)
+        assertThat(TheTreacheryOfWhales("day7.txt").alignCrabs()).isEqualTo(343605)
+    }
+
+    @Test
+    fun `day7 - Puzzle2`() {
+        assertThat(TheTreacheryOfWhales("day7-test.txt").alignCrabsTricky()).isEqualTo(168)
+        assertThat(TheTreacheryOfWhales("day7.txt").alignCrabsTricky()).isEqualTo(96744904)
+    }
 }
