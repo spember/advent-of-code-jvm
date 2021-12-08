@@ -89,4 +89,16 @@ class Part1Test {
         assertThat(TheTreacheryOfWhales("day7-test.txt").alignCrabsTricky()).isEqualTo(168)
         assertThat(TheTreacheryOfWhales("day7.txt").alignCrabsTricky()).isEqualTo(96744904)
     }
+
+    @Test
+    fun `day8 - Puzzle1`() {
+        assertThat(SevenSegmentSearch("day8-test.txt").focusOnEasy()).isEqualTo(26)
+        assertThat(SevenSegmentSearch("day8.txt").focusOnEasy()).isEqualTo(470)
+    }
+
+    @Test
+    fun `day8 - Puzzle2`() {
+        assertThat(SevenSegmentSearch("day8-test.txt").fullDecode()).isEqualTo(61229)
+        assertThat(SevenSegmentSearch("day8.txt").fullDecode()).isEqualTo(989396)
+    }
 }
