@@ -43,4 +43,22 @@ class Part2Test {
         assertThat(DumboOctopus("day11.txt").findAll()).isEqualTo(502)
 
     }
+
+    @Test
+    fun `Day12 - Puzzle1`() {
+        assertThat(PassagePathing.Cave("start")).isEqualTo(PassagePathing.Cave("start"))
+        assertThat(PassagePathing.Cave("start")).isNotEqualTo(PassagePathing.Cave("end"))
+        assertThat(PassagePathing("day12-test1.txt").countPaths()).isEqualTo(10)
+        assertThat(PassagePathing("day12-test2.txt").countPaths()).isEqualTo(19)
+        assertThat(PassagePathing("day12-test3.txt").countPaths()).isEqualTo(226)
+        assertThat(PassagePathing("day12.txt").countPaths()).isEqualTo(5457)
+    }
+
+    @Test
+    fun `Day12 - Puzzle2`() {
+        assertThat(PassagePathing("day12-test1.txt").countPaths(true)).isEqualTo(36)
+        assertThat(PassagePathing("day12-test2.txt").countPaths(true)).isEqualTo(103)
+        assertThat(PassagePathing("day12-test3.txt").countPaths(true)).isEqualTo(3509)
+        assertThat(PassagePathing("day12.txt").countPaths(true)).isEqualTo(128506)
+    }
 }

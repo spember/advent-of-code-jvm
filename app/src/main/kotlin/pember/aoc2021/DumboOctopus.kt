@@ -1,9 +1,9 @@
 package pember.aoc2021
 
-import pember.utils.YearlyFileReader
+import pember.utils.AocPuzzle21
 import java.util.*
 
-class DumboOctopus(private val filename: String) {
+class DumboOctopus(filename: String): AocPuzzle21(filename) {
 
     // grid of numbers
     // on step:
@@ -124,9 +124,7 @@ class DumboOctopus(private val filename: String) {
         }
     }
 
-    private fun parse(): Array<Array<Int>> =
-        YearlyFileReader(2021)
-            .readNonEmptyLines(filename)
+    private fun parse(): Array<Array<Int>> = readLines()
             .map {
                 it.map {c -> Character.getNumericValue(c) }.toTypedArray()
             }
