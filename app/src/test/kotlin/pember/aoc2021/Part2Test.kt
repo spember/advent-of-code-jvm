@@ -28,4 +28,19 @@ class Part2Test {
         assertThat(SyntaxScoring("day10-test.txt").findMiddleScoreOfCompleted()).isEqualTo(288957)
         assertThat(SyntaxScoring("day10.txt").findMiddleScoreOfCompleted()).isEqualTo(3260812321)
     }
+
+    @Test
+    fun `Day11 - Puzzle1`() {
+//        assertThat(DumboOctopus("day11-pretest.txt").countFlashes(2)).isEqualTo(20)
+        assertThat(DumboOctopus("day11-test.txt").countFlashes(10)).isEqualTo(204)
+        assertThat(DumboOctopus("day11-test.txt").countFlashes(100)).isEqualTo(1656)
+        assertThat(DumboOctopus("day11.txt").countFlashes(100)).isEqualTo(1713)
+    }
+    @Test
+    fun `Day11 - Puzzle2`() {
+//        assertThat(DumboOctopus("day11-pretest.txt").countFlashes(2)).isEqualTo(20)
+        assertThat(DumboOctopus("day11-test.txt").findAll()).isEqualTo(195)
+        assertThat(DumboOctopus("day11.txt").findAll()).isEqualTo(502)
+
+    }
 }
