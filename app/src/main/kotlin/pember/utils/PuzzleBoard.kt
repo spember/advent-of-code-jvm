@@ -3,7 +3,7 @@ package pember.utils
 /**
  * Many of these questions involve a grid of numbers and require iteration.
  */
-class PuzzleBoard<T>(private val board: Array<Array<T>>) {
+open class PuzzleBoard<T>(protected val board: Array<Array<T>>) {
 
     init {
         // check that board lengths are uniform
@@ -52,5 +52,15 @@ class PuzzleBoard<T>(private val board: Array<Array<T>>) {
         toSequence().map {(value, position) ->
             fn(value)?.let { updatedValue -> board[position.first][position.second] = updatedValue}
         }
+    }
+
+    fun display(delimiter: String = "") {
+        for (y in board[0].indices) {
+            for(x in board.indices) {
+                print("${board[x][y]}${delimiter}")
+            }
+            print("\n")
+        }
+        print("\n")
     }
 }

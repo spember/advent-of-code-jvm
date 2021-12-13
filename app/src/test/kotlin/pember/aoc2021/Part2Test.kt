@@ -61,4 +61,16 @@ class Part2Test {
         assertThat(PassagePathing("day12-test3.txt").countPaths(true)).isEqualTo(3509)
         assertThat(PassagePathing("day12.txt").countPaths(true)).isEqualTo(128506)
     }
+
+    @Test
+    fun `Day13 - Puzzle1`() {
+        assertThat(TransparentOrigami("day13-test.txt").foldToInstructions()).isEqualTo(17)
+        assertThat(TransparentOrigami("day13.txt").foldToInstructions()).isEqualTo(842)
+    }
+
+    @Test
+    fun `Day13 - Puzzle2`() {
+        assertThat(TransparentOrigami("day13-test.txt").foldToInstructions(false)).isEqualTo(16)
+        assertThat(TransparentOrigami("day13.txt").foldToInstructions(false)).isEqualTo(95)
+    }
 }
