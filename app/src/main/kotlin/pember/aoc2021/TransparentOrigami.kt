@@ -48,19 +48,17 @@ class TransparentOrigami(val filename: String): AocPuzzle21(filename) {
             val updatedBoard = Array(board.size) { Array(foldRow) {EMPTY} }
             // copy board
             for (x in board.indices) {
-                for (y in (0) until foldRow) {
+                for (y in 0 until foldRow) {
                     updatedBoard[x][y] = board[x][y]
                 }
             }
             // starting at fold line + 1 and going to the end of the old paper, put [x][foldRow+1+i] at [x][foldrow-1-i] if it's a #
 
             for (x in board.indices) {
-                var count = 0
-                for (y in foldRow+1 until board[0].size) {
-                    if (board[x][y] == DOT) {
-                        updatedBoard[x][foldRow-1-count] = DOT
+                for (y in 1 until board[0].size-foldRow) {
+                    if (board[x][foldRow+y] == DOT) {
+                        updatedBoard[x][foldRow-y] = DOT
                     }
-                    count += 1
                 }
             }
             return Paper(updatedBoard)
@@ -96,7 +94,7 @@ class TransparentOrigami(val filename: String): AocPuzzle21(filename) {
                 data.forEach { board[it.first][it.second] = DOT }
                 return board
             }
-            
+
             private const val UP = 'y'
             private const val DOT = '#'
             private const val EMPTY = '.'
