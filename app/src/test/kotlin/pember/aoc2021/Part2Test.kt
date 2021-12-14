@@ -73,4 +73,16 @@ class Part2Test {
         assertThat(TransparentOrigami("day13-test.txt").foldToInstructions(false)).isEqualTo(16)
         assertThat(TransparentOrigami("day13.txt").foldToInstructions(false)).isEqualTo(95)
     }
+
+    @Test
+    fun `Day14 - Puzzle1`() {
+        assertThat(ExtendedPolymerization("day14-test.txt").polymerElements(10)).isEqualTo(1588)
+        assertThat(ExtendedPolymerization("day14.txt").polymerElements(10)).isEqualTo(4517)
+    }
+
+    @Test
+    fun `Day14 - Puzzle2`() {
+        assertThat(ExtendedPolymerization("day14-test.txt").polymerElements(40)).isEqualTo(2188189693529)
+        assertThat(ExtendedPolymerization("day14.txt").polymerElements(40)).isEqualTo(4704817645083)
+    }
 }
