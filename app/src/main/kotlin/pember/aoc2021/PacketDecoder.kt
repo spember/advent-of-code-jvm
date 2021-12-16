@@ -1,14 +1,17 @@
 package pember.aoc2021
 
-import pember.utils.AocPuzzle21
+import pember.utils.YearlyFileReader
+import java.lang.RuntimeException
 
-class PacketDecoder(fileName: String): AocPuzzle21(fileName) {
+class PacketDecoder {
+
+    fun decodeFromFile(fileName:String): Pair<Packet, String> =
+        decodeHex(YearlyFileReader(2021).readLines(fileName).first())
 
     fun decodeHex(hexString: String): Pair<Packet, String> = decode(hexToBinary(hexString))
 
     fun decode(binaryString: String): Pair<Packet, String> {
         val (version, type) = getVersionAndType(binaryString)
-//        println("Incoming string is ${binaryString}")
         return if (type == 4) {
             // is literal
             val (value, remainder) = parseLiteral(binaryString)
@@ -17,12 +20,9 @@ class PacketDecoder(fileName: String): AocPuzzle21(fileName) {
             // it's an operator!
             val operator = Operator(version, type)
             if (binaryString.drop(6).take(1) == TOTAL_LENGTH_OPERATOR) {
-                // drop 7, get 15
                 val totalBits = extractLength(binaryString, 15)
-//                println("totalBits: ${totalBits}")
                 // extract bits and iterate, add to children, return this operator + 'outer' remainder
                 var subPacketBits: String = binaryString.drop(7+15).take(totalBits)
-//                println("Sub packet is ${subPacketBits}")
                 while(subPacketBits.isNotEmpty()) {
                     val (child, innerRemainder) = decode(subPacketBits)
                     operator.children.add(child)
@@ -31,16 +31,13 @@ class PacketDecoder(fileName: String): AocPuzzle21(fileName) {
                 operator to binaryString.drop(7 + 15 +  totalBits)
 
             } else {
-                // drop 7 get 11
                 val subPacketCount = extractLength(binaryString, 11)
-                println("Sub count = " + subPacketCount)
                 var innerRemainder = binaryString.drop(7+11)
                 (1..subPacketCount).forEach {
                     val (child, remainder) = decode(innerRemainder)
                     operator.children.add(child)
                     innerRemainder = remainder
                 }
-//                throw RuntimeException()
                 return operator to innerRemainder
             }
         }
@@ -53,16 +50,51 @@ class PacketDecoder(fileName: String): AocPuzzle21(fileName) {
             packet.version
         }
     }
-//    fun
-    // literal needs a way to extract just the number (stop at the last 0 bit) and return the remainder
-    // type 0 needs to take(numberOfBits), discard any extra bits
-    // type 1 needs to stop after extracting some number of packets
-    // packet -> value
-    // packet -> verison, type, children, in order
 
+    /**
+     * calculates the expression of the Packet tree
+     */
+    fun process(packet: Packet): Long {
+        return if (packet is Literal)  packet.value
+        else {
+            val childResults = (packet as Operator).children.map {process(it)}
+            when((packet).type) {
+                0 -> childResults.fold(0L) { acc, value -> acc + value}
+
+                1 -> childResults.fold(1) { acc, value -> acc* value}
+
+                2 -> childResults.minOrNull()!!
+
+                3 -> childResults.maxOrNull()!!
+
+                5 -> if (childResults.first() > childResults.last()) {
+                        1
+                    } else {
+                        0
+                    }
+
+                6 -> if (childResults.first() < childResults.last()) {
+                        1
+                    } else {
+                        0
+                    }
+
+                7 -> if (childResults.first() == childResults.last()) {
+                        1
+                    } else {
+                        0
+                    }
+                else -> {
+                    throw RuntimeException()
+                }
+            }
+        }
+    }
 
     companion object {
         private const val TOTAL_LENGTH_OPERATOR = "0"
+        private const val HEADER_BITS = 6
+        private const val LITERAL_PACKET_SIZE = 5
 
         fun getVersionAndType(binaryPacket: String): Pair<Int, Int> {
             val version = fromBinary(binaryPacket.take(3))
@@ -87,22 +119,20 @@ class PacketDecoder(fileName: String): AocPuzzle21(fileName) {
 
         fun parseLiteral(binaryPacket: String): Pair<Long, String> {
             // skip the first six as we've already checked version and type
-            // this may be a problem as we're not checking to stop at 0 first in the drop(1)
-//            return fromBinary(binaryPacket.drop(6).windowed(5, 5, false).map {chunk -> chunk.drop(1)}.joinToString(""))
+
             var value = ""
             var counts = 0
-            for (chunk in binaryPacket.drop(6).chunked(5)) {
+            for (chunk in binaryPacket.drop(HEADER_BITS).chunked(LITERAL_PACKET_SIZE)) {
                 counts += 1
                 value += chunk.drop(1)
                 if (chunk[0] == '0') {
                     break
                 }
             }
-            println("there were $counts cunks scanned, so total string size is ${6 + (counts*5)}")
-            return longFromBinary(value) to binaryPacket.drop(6+(counts*5))
+            return longFromBinary(value) to binaryPacket.drop(HEADER_BITS+(counts*LITERAL_PACKET_SIZE))
         }
 
-        fun extractLength(binaryString: String, count: Int): Int = fromBinary(binaryString.drop(7).take(count))
+        fun extractLength(binaryString: String, count: Int): Int = fromBinary(binaryString.drop(HEADER_BITS+1).take(count))
     }
 
     open class Packet(val version: Int, val type: Int )
