@@ -63,4 +63,10 @@ open class PuzzleBoard<T>(protected val board: Array<Array<T>>) {
         }
         print("\n")
     }
+
+    fun displayRows(delimiter: String="") {
+        for (x in board.indices) {
+            println(board[x].joinToString(delimiter))
+        }
+    }
 }

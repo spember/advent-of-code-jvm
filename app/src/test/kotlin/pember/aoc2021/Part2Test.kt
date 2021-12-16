@@ -85,4 +85,16 @@ class Part2Test {
         assertThat(ExtendedPolymerization("day14-test.txt").polymerElements(40)).isEqualTo(2188189693529)
         assertThat(ExtendedPolymerization("day14.txt").polymerElements(40)).isEqualTo(4704817645083)
     }
+
+    @Test
+    fun `Day15 - Puzzle1`() {
+        assertThat(Chiton("day15-test.txt").findLowestRisk()).isEqualTo(40)
+        assertThat(Chiton("day15.txt").findLowestRisk()).isEqualTo(503)
+    }
+
+    @Test
+    fun `Day15 - Puzzle2`() {
+        assertThat(Chiton("day15-test.txt").expandedRisk()).isEqualTo(315)
+        assertThat(Chiton("day15.txt").expandedRisk()).isEqualTo(2853)
+    }
 }
