@@ -21,4 +21,17 @@ class Part1Test {
         val max2 = CalorieCounting("day1.txt").findTop3Cals()
         assertThat(max2).isEqualTo(206152)
     }
+
+    @Test
+    fun `Day 2- RPS - part 1`() {
+
+        assertThat(RockPaperScissors("day2-test.txt").getNaiveTotalScore()).isEqualTo(15)
+
+        assertThat(RockPaperScissors("day2.txt").getNaiveTotalScore()).isEqualTo(13268)
+    }
+    @Test
+    fun `Day 2 - RPS - part 2`() {
+        assertThat(RockPaperScissors("day2-test.txt").getUltraSecretStrategyScore()).isEqualTo(12)
+        assertThat(RockPaperScissors("day2.txt").getUltraSecretStrategyScore()).isEqualTo(15508)
+    }
 }

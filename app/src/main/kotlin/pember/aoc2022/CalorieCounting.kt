@@ -1,10 +1,7 @@
 package pember.aoc2022
 
-import pember.utils.YearlyFileReader
+class CalorieCounting(private val fileName:String): Aoc2022() {
 
-class CalorieCounting(private val fileName: String) {
-
-    private val reader = YearlyFileReader(2022)
 
     fun findMaxCal(): Int = sortCals().first()
 
