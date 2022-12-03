@@ -34,4 +34,15 @@ class Part1Test {
         assertThat(RockPaperScissors("day2-test.txt").getUltraSecretStrategyScore()).isEqualTo(12)
         assertThat(RockPaperScissors("day2.txt").getUltraSecretStrategyScore()).isEqualTo(15508)
     }
+
+    @Test
+    fun `Day 3 - Rucksack 1` () {
+        assertThat(RucksackReorganization("day3-test.txt").sumOverlappingPriorities()).isEqualTo(157)
+        assertThat(RucksackReorganization("day3.txt").sumOverlappingPriorities()).isEqualTo(7889)
+    }
+    @Test
+    fun `Day 3 - Rucksack 2` () {
+        assertThat(RucksackReorganization("day3-test.txt").sumBadgePriority()).isEqualTo(70)
+        assertThat(RucksackReorganization("day3.txt").sumBadgePriority()).isEqualTo(2825)
+    }
 }
