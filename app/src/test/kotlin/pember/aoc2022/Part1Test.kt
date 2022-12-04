@@ -45,4 +45,16 @@ class Part1Test {
         assertThat(RucksackReorganization("day3-test.txt").sumBadgePriority()).isEqualTo(70)
         assertThat(RucksackReorganization("day3.txt").sumBadgePriority()).isEqualTo(2825)
     }
+
+    @Test
+    fun `Day 4 - Cleanup 1` () {
+        assertThat(CampCleanup("day4-test.txt").countEnclosingPairs()).isEqualTo(2)
+        assertThat(CampCleanup("day4.txt").countEnclosingPairs()).isEqualTo(494)
+    }
+
+    @Test
+    fun `Day 4 - Cleanup 2` () {
+        assertThat(CampCleanup("day4-test.txt").countOverlappingPairs()).isEqualTo(4)
+        assertThat(CampCleanup("day4.txt").countOverlappingPairs()).isEqualTo(833)
+    }
 }
