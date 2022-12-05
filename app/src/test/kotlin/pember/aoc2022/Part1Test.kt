@@ -57,4 +57,15 @@ class Part1Test {
         assertThat(CampCleanup("day4-test.txt").countOverlappingPairs()).isEqualTo(4)
         assertThat(CampCleanup("day4.txt").countOverlappingPairs()).isEqualTo(833)
     }
+    @Test
+    fun `Day 5 - Stacks 1`() {
+        assertThat(SupplyStacks("day5-test.txt").findTopCrates()).isEqualTo("CMZ")
+        assertThat(SupplyStacks("day5.txt").findTopCrates()).isEqualTo("WSFTMRHPP")
+    }
+
+    @Test
+    fun `Day 5 - Stacks 2`() {
+        assertThat(SupplyStacks("day5-test.txt").findTopCratesWith9001()).isEqualTo("MCD")
+        assertThat(SupplyStacks("day5.txt").findTopCratesWith9001()).isEqualTo("GSLCMFBRP")
+    }
 }
