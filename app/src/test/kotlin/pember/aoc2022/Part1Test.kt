@@ -68,4 +68,24 @@ class Part1Test {
         assertThat(SupplyStacks("day5-test.txt").findTopCratesWith9001()).isEqualTo("MCD")
         assertThat(SupplyStacks("day5.txt").findTopCratesWith9001()).isEqualTo("GSLCMFBRP")
     }
+
+    @Test
+    fun `Day 6 - Tuning 1`() {
+        assertThat(TuningTrouble().detectMarkerFromFile("day6-test.txt")).isEqualTo(7)
+        assertThat(TuningTrouble().detectMarker("bvwbjplbgvbhsrlpgdmjqwftvncz")).isEqualTo(5)
+        assertThat(TuningTrouble().detectMarker("nppdvjthqldpwncqszvftbrmjlhg")).isEqualTo(6)
+        assertThat(TuningTrouble().detectMarker("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg")).isEqualTo(10)
+        assertThat(TuningTrouble().detectMarker("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw")).isEqualTo(11)
+        assertThat(TuningTrouble().detectMarkerFromFile("day6.txt")).isEqualTo(1531)
+    }
+
+    @Test
+    fun `Day 6 - Tuning 2`() {
+        assertThat(TuningTrouble().detectMessageFromFile("day6-test.txt")).isEqualTo(19)
+        assertThat(TuningTrouble().detectMessage("bvwbjplbgvbhsrlpgdmjqwftvncz")).isEqualTo(23)
+        assertThat(TuningTrouble().detectMessage("nppdvjthqldpwncqszvftbrmjlhg")).isEqualTo(23)
+        assertThat(TuningTrouble().detectMessage("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg")).isEqualTo(29)
+        assertThat(TuningTrouble().detectMessage("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw")).isEqualTo(26)
+        assertThat(TuningTrouble().detectMessageFromFile("day6.txt")).isEqualTo(2518)
+    }
 }
