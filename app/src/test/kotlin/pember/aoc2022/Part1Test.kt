@@ -88,4 +88,16 @@ class Part1Test {
         assertThat(TuningTrouble().detectMessage("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw")).isEqualTo(26)
         assertThat(TuningTrouble().detectMessageFromFile("day6.txt")).isEqualTo(2518)
     }
+
+    @Test
+    fun `Day 7 - scanning 1`() {
+        assertThat(NoSpaceLeft("day7-test.txt").findSpaceToClear()).isEqualTo(95437L)
+        assertThat(NoSpaceLeft("day7.txt").findSpaceToClear()).isEqualTo(1447046L)
+    }
+
+    @Test
+    fun `Day 7 - scanning 2`() {
+        assertThat(NoSpaceLeft("day7-test.txt").findSmallestDir()).isEqualTo(24933642L)
+        assertThat(NoSpaceLeft("day7.txt").findSmallestDir()).isEqualTo(578710L)
+    }
 }
