@@ -100,4 +100,16 @@ class Part1Test {
         assertThat(NoSpaceLeft("day7-test.txt").findSmallestDir()).isEqualTo(24933642L)
         assertThat(NoSpaceLeft("day7.txt").findSmallestDir()).isEqualTo(578710L)
     }
+
+    @Test
+    fun `Day 8 - find visible1`() {
+        assertThat(TreetopTreeHouse("day8-test.txt").countVisible()).isEqualTo(21)
+        assertThat(TreetopTreeHouse("day8.txt").countVisible()).isEqualTo(1779)
+    }
+
+    @Test
+    fun `Day 8 - find scenic`() {
+        assertThat(TreetopTreeHouse("day8-test.txt").findMaxScenic()).isEqualTo(8)
+        assertThat(TreetopTreeHouse("day8.txt").findMaxScenic()).isEqualTo(172224)
+    }
 }
