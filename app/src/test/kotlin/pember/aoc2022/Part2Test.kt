@@ -22,8 +22,9 @@ class Part2Test {
     }
 
     @Test
-    fun `Day 10 - Signal Scanner 1`() {
+    fun `Day 10 - Signal Scanner 1 & 2`() {
         assertThat(CathodeRayTube("day10-test.txt").findSignalStrength()).isEqualTo(13140)
         assertThat(CathodeRayTube("day10.txt").findSignalStrength()).isEqualTo(12740)
+        // draws: RBPARAGF
     }
 }
