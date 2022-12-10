@@ -20,4 +20,10 @@ class Part2Test {
         // not 2179 or 2368 .. 2300 is too low
         // only one star today
     }
+
+    @Test
+    fun `Day 10 - Signal Scanner 1`() {
+        assertThat(CathodeRayTube("day10-test.txt").findSignalStrength()).isEqualTo(13140)
+        assertThat(CathodeRayTube("day10.txt").findSignalStrength()).isEqualTo(12740)
+    }
 }
