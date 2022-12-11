@@ -27,4 +27,16 @@ class Part2Test {
         assertThat(CathodeRayTube("day10.txt").findSignalStrength()).isEqualTo(12740)
         // draws: RBPARAGF
     }
+
+    @Test
+    fun `Day 11 - MonkeyBusiness `() {
+        assertThat(MonkeyInTheMiddle("day11-test.txt").calculateMonkeyBusiness(20)).isEqualTo(10605)
+        assertThat(MonkeyInTheMiddle("day11.txt").calculateMonkeyBusiness(20)).isEqualTo(78960)
+    }
+
+    @Test
+    fun `Day 11 - MonkeyBusiness 2`() {
+        assertThat(MonkeyInTheMiddle("day11-test.txt").crazyMonkeyBusiness(10000)).isEqualTo(2713310158)
+        assertThat(MonkeyInTheMiddle("day11.txt").crazyMonkeyBusiness(10000)).isEqualTo(14561971968)
+    }
 }
