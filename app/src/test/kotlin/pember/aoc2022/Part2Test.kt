@@ -39,4 +39,17 @@ class Part2Test {
         assertThat(MonkeyInTheMiddle("day11-test.txt").crazyMonkeyBusiness(10000)).isEqualTo(2713310158)
         assertThat(MonkeyInTheMiddle("day11.txt").crazyMonkeyBusiness(10000)).isEqualTo(14561971968)
     }
+
+    @Test
+    fun `Day 12 - Hill CLimbing Steps` () {
+        assertThat(HillClimbing("day12-test.txt").findShortestSteps()).isEqualTo(31)
+        assertThat(HillClimbing("day12.txt").findShortestSteps()).isEqualTo(423)
+    }
+
+    @Test
+    fun `Day 12 - Hill CLimbing Steps 2` () {
+        assertThat(HillClimbing("day12-test.txt").fromAllAs()).isEqualTo(29)
+        assertThat(HillClimbing("day12.txt").fromAllAs()).isEqualTo(416)
+    }
+
 }
