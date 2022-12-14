@@ -2,6 +2,8 @@ package pember.aoc2022
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.jupiter.api.Test
+import com.google.gson.Gson
+
 
 class Part2Test {
 
@@ -50,6 +52,13 @@ class Part2Test {
     fun `Day 12 - Hill CLimbing Steps 2` () {
         assertThat(HillClimbing("day12-test.txt").fromAllAs()).isEqualTo(29)
         assertThat(HillClimbing("day12.txt").fromAllAs()).isEqualTo(416)
+    }
+
+    @Test
+    fun `Day 13 - Compare checks`() {
+        assertThat(DistressSignal("day13-test.txt").sumRightOrder()).isEqualTo(13)
+        // this is not the right answer, although it passes the test input ... hmmm
+        assertThat(DistressSignal("day13.txt").sumRightOrder()).isEqualTo(5066)
     }
 
 }
