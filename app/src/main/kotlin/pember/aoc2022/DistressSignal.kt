@@ -53,9 +53,16 @@ class DistressSignal(private val fileName: String): Aoc2022() {
                     return false
                 }
             } else if (l is List<*> && r is Int) {
-                return compare(l, listOf(r))
+                val z = compare(l, listOf(r))
+//                return compare(l, listOf(r))
+                if (!z) {
+                    return false
+                }
             } else if (l is Int && r is List<*>) {
-                return compare(listOf(l), r)
+                val z = compare(listOf(l), r)
+                if (!z) {
+                    return false
+                }
             } else if (l is List<*> && r is List<*>) {
                 return compare(l, r)
             } else {
@@ -66,9 +73,6 @@ class DistressSignal(private val fileName: String): Aoc2022() {
             // if l is a double and r is a list
         }
         // check if items are left
-//        if (leftItems.isEmpty()) {
-//            return true
-//        }
         println("end.. with ${leftItems} and ${rightItems}")
         if (rightItems.isEmpty() && leftItems.isNotEmpty()) {
             return false
