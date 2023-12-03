@@ -28,4 +28,16 @@ class Part1Test {
         assertEquals(2286, CubeConundrum.findMinimum("day2-test.txt"))
         assertEquals(63307, CubeConundrum.findMinimum("day2.txt"))
     }
+
+    @Test
+    fun `Day 3 - Gear Ratios part 1`(){
+        assertEquals(4361, GearRatios.sumParts("day3-test.txt"))
+        assertEquals(525119, GearRatios.sumParts("day3.txt"))
+    }
+
+    @Test
+    fun `Day 4 - Gear Ratios part 2`() {
+        assertEquals(467835, GearRatios.findGears("day3-test.txt"))
+        assertEquals(76504829, GearRatios.findGears("day3.txt"))
+    }
 }

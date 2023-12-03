@@ -57,4 +57,8 @@ class YearlyFileReader(private val year: Int) {
             yield(currentLines)
         }
     }
+
+    fun readLinesIntoCharGrid(fileName: String): Array<CharArray> {
+        return readLines(fileName).map { it.toCharArray() }.toList().toTypedArray()
+    }
 }
