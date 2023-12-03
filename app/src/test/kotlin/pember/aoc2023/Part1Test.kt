@@ -16,4 +16,16 @@ class Part1Test {
         assertEquals(281, Trebuchet.part2("day1-test2.txt"))
         assertEquals(55614, Trebuchet.part2("day1.txt"))
     }
+
+    @Test
+    fun `Day2 - Cubes part1`() {
+        assertEquals(8, CubeConundrum.countPossible("day2-test.txt"))
+        assertEquals(2416, CubeConundrum.countPossible("day2.txt"))
+    }
+
+    @Test
+    fun `Day 2 - Cubes part 2`() {
+        assertEquals(2286, CubeConundrum.findMinimum("day2-test.txt"))
+        assertEquals(63307, CubeConundrum.findMinimum("day2.txt"))
+    }
 }
