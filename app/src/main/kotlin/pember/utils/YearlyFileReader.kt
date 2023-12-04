@@ -61,4 +61,11 @@ class YearlyFileReader(private val year: Int) {
     fun readLinesIntoCharGrid(fileName: String): Array<CharArray> {
         return readLines(fileName).map { it.toCharArray() }.toList().toTypedArray()
     }
+
+    fun extractIdAndSegments(line: String, idLabel: String, segmentsDelim: String): Pair<Int, List<String>> {
+        val pieces = line.split(":")
+        val id = Integer.parseInt(pieces[0].removePrefix(idLabel).trim())
+        val segments = pieces[1].split(segmentsDelim)
+        return id to segments
+    }
 }

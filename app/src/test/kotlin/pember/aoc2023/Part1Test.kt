@@ -36,8 +36,20 @@ class Part1Test {
     }
 
     @Test
-    fun `Day 4 - Gear Ratios part 2`() {
+    fun `Day 3 - Gear Ratios part 2`() {
         assertEquals(467835, GearRatios.findGears("day3-test.txt"))
         assertEquals(76504829, GearRatios.findGears("day3.txt"))
+    }
+
+    @Test
+    fun `Day 4 - Scratchcards part 1`() {
+        assertEquals(13, Scratchcards.scoreEach("day4-test.txt"))
+        assertEquals(21568, Scratchcards.scoreEach("day4.txt"))
+    }
+
+    @Test
+    fun `Day 4 - Scratchcards part 2`() {
+        assertEquals(30, Scratchcards.cardBananza("day4-test.txt"))
+        assertEquals(11827296, Scratchcards.cardBananza("day4.txt"))
     }
 }
