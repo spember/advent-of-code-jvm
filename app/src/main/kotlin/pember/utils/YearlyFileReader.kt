@@ -43,10 +43,9 @@ class YearlyFileReader(private val year: Int) {
      * file into sequences of these line 'groups'.
      */
     fun readLinesIntoGroups(fileName: String): Sequence<List<String>> {
-        val lines = readLines(fileName).asSequence()
         var currentLines = mutableListOf<String>()
         return sequence {
-            lines.forEach {
+            readLines(fileName).asSequence().forEach {
                 if (it.isEmpty()) {
                     yield(currentLines)
                     currentLines = mutableListOf()

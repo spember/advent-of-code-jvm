@@ -52,4 +52,28 @@ class Part1Test {
         assertEquals(30, Scratchcards.cardBananza("day4-test.txt"))
         assertEquals(11827296, Scratchcards.cardBananza("day4.txt"))
     }
+
+    @Test
+    fun `Day 5 - Seed Crazy part 1`() {
+        assertEquals(35, SeedMapper.findLowLocation("day5-test.txt"))
+        assertEquals(57075758, SeedMapper.findLowLocation("day5.txt"))
+    }
+
+    @Test
+    fun `Day 5 - Seed Crazy part 2`() {
+        assertEquals(46, SeedMapper.seedRanges("day5-test.txt"))
+//        assertEquals(46, SeedMapper.seedRanges("day5.txt"))
+    }
+
+    @Test
+    fun `Day 6 - Wait for It part 1`() {
+        assertEquals(288, WaitForIt.waysToWin("day6-test.txt"))
+        assertEquals(128700, WaitForIt.waysToWin("day6.txt"))
+    }
+
+    @Test
+    fun `Day 6 - WFI part 2`() {
+        assertEquals(71503, WaitForIt.badKerning("day6-test.txt"))
+        assertEquals(39594072, WaitForIt.badKerning("day6.txt"))
+    }
 }
