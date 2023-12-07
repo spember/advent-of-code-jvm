@@ -35,7 +35,7 @@ object CubeConundrum: Aoc2023() {
         fun reveal(handful: String) {
             val play = handful.split(",")
                 .map { it.trim().split(" ") }
-                .map {Integer.parseInt(it[0]) to Colors.lookup(it[1])}
+                .map {Integer.parseInt(it[0]) to Colors.lookup(it[1]) }
                 .fold(mutableMapOf<Colors, Int>()) { data, pair ->
                     data[pair.second] = pair.first
                     data

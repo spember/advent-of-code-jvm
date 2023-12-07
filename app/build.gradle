@@ -6,40 +6,15 @@
  * User Manual available at https://docs.gradle.org/6.7.1/userguide/building_java_projects.html
  */
 
-plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
-//    id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.10'
-
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
-}
-
-repositories {
-    // Use JCenter for resolving dependencies.
-    jcenter()
-}
-
-ext {
-    kotlinVersion = "1.4.0"
-    junitVersion  = "5.6.2"
-    truthVersion =  "1.0.1"
-}
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.0")
-    implementation 'com.google.code.gson:gson:2.10'
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
-    testImplementation("com.google.truth:truth:${truthVersion}")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    implementation(project(":utils"))
 }
+
 
 application {
     // Define the main class for the application.
-    mainClass = 'pember.aoc2020.AppKt'
+    mainClass = 'pember.AocKt'
 }
 
 test {

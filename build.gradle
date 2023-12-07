@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
+    id 'org.jetbrains.kotlin.jvm' version '1.8.22'
+
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'application'
+}
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "application"
+    apply plugin: 'org.jetbrains.kotlin.jvm'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
+        }
+    }
+
+
+}
+
+subprojects {
+
+
+    ext {
+        kotlinVersion = "1.8.22"
+        junitVersion  = "5.10.1"
+        truthVersion =  "1.0.1"
+    }
+
+    dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+        implementation 'com.google.code.gson:gson:2.10'
+        testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+        testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
+        testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
+        testImplementation("com.google.truth:truth:${truthVersion}")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+
+
+
+
+

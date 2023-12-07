@@ -1,0 +1,13 @@
+
+dependencies {
+    implementation(project(":utils"))
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'pember.AocKt'
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

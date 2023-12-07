@@ -5,7 +5,7 @@ object Scratchcards: Aoc2023() {
     fun scoreEach(fn: String): Int {
         val result = reader.readLines(fn)
             .map { reader.extractIdAndSegments(it, "Card ", "|") }
-            .map {(id, segments) -> Card(id, segments)}
+            .map {(id, segments) -> Card(id, segments) }
             .map { it.score().first }
             .sum()
         println("score -> $result")
@@ -15,7 +15,7 @@ object Scratchcards: Aoc2023() {
     fun cardBananza(fn: String): Int {
         val cardBank: MutableList<Pair<Card, Int>> = reader.readLines(fn)
             .map { reader.extractIdAndSegments(it, "Card ", "|") }
-            .map {(id, segments) -> Card(id, segments)}
+            .map {(id, segments) -> Card(id, segments) }
             .map { it to 1 }
             .toMutableList()
         println("Here we go")
