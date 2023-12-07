@@ -2,7 +2,7 @@ package pember.aoc2023
 
 import java.lang.Long.parseLong
 
-object WaitForIt: Aoc2023() {
+object WaitForIt: Aoc2023(6) {
 
     fun waysToWin(fn: String): Long {
         val games: List<Race> = reader.readLines(fn).windowed(2, 2, false).map {

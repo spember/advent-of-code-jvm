@@ -2,7 +2,7 @@ package pember.aoc2023
 
 import java.lang.Error
 
-object CubeConundrum: Aoc2023() {
+object CubeConundrum: Aoc2023(1) {
 
     fun countPossible(fn: String): Int {
         //12 red cubes, 13 green cubes, and 14 blue cubes

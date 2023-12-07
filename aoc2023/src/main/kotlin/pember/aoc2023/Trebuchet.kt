@@ -3,7 +3,7 @@ package pember.aoc2023
 import java.lang.Integer.parseInt
 
 
-object Trebuchet: Aoc2023() {
+object Trebuchet: Aoc2023(5) {
 
     fun part1(fn: String): Int = reader.readLines(fn)
         .map { it.toCharArray() }

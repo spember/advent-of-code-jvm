@@ -1,6 +1,6 @@
 package pember.aoc2023
 
-object GearRatios: Aoc2023() {
+object GearRatios: Aoc2023(2) {
 
     fun sumParts(fn: String): Int {
         val grid = reader.readLinesIntoCharGrid(fn)

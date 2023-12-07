@@ -1,5 +1,6 @@
 package pember
 
+import pember.aoc2023.CamelCards
 import pember.aoc2023.WaitForIt
 
 class Aoc {
@@ -8,6 +9,10 @@ class Aoc {
             6 -> {
                 println(WaitForIt.waysToWin("day6-test.txt"))
                 println(WaitForIt.waysToWin("day6.txt"))
+            }
+            7 -> {
+                CamelCards.part1()
+                CamelCards.part2()
             }
             else -> {
                 println("unknown day $day")
@@ -19,6 +24,5 @@ class Aoc {
 }
 
 fun main(args: Array<String>) {
-    println("data -> ${args.toList()}")
     Aoc().runPuzzle(Integer.parseInt(args.first()))
 }

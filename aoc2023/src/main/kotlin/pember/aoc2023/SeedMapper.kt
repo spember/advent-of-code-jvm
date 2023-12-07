@@ -3,7 +3,7 @@ package pember.aoc2023
 import java.lang.Long.*
 import java.util.LinkedList
 
-object SeedMapper: Aoc2023() {
+object SeedMapper: Aoc2023(4) {
 
     fun findLowLocation(fn: String): Long {
         val groups = reader.readLinesIntoGroups(fn)

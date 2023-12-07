@@ -1,6 +1,6 @@
 package pember.aoc2023
 
-object Scratchcards: Aoc2023() {
+object Scratchcards: Aoc2023(3) {
 
     fun scoreEach(fn: String): Int {
         val result = reader.readLines(fn)
