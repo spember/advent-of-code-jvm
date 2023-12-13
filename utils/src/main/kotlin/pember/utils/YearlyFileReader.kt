@@ -61,6 +61,18 @@ class YearlyFileReader(private val year: Int) {
         return readLines(fileName).map { it.toCharArray() }.toList().toTypedArray()
     }
 
+    inline fun <reified T> readLinesIntoGrid(fileName: String, crossinline mapper: (Char, Pair<Int, Int>) -> T): Array<Array<T>> {
+        val rows: List<List<T>> = readLines(fileName).mapIndexed { y, row->
+            row.toCharArray().mapIndexed {x, item -> mapper.invoke(item, y to x)}
+        }.toList()
+        val array: Array<Array<T>> = Array(rows.size) {i ->
+            Array(rows[i].size) {x ->
+                rows[i][x]
+            }
+        }
+        return array
+    }
+
     fun extractIdAndSegments(line: String, idLabel: String, segmentsDelim: String): Pair<Int, List<String>> {
         val pieces = line.split(":")
         val id = Integer.parseInt(pieces[0].removePrefix(idLabel).trim())

@@ -1,9 +1,6 @@
 package pember
 
-import pember.aoc2023.CamelCards
-import pember.aoc2023.HauntedWasteland
-import pember.aoc2023.MirageMaintenence
-import pember.aoc2023.WaitForIt
+import pember.aoc2023.*
 
 class Aoc {
     fun runPuzzle(day: Int) {
@@ -22,6 +19,13 @@ class Aoc {
             }
             9 -> {
                 MirageMaintenence.part2()
+            }
+            10 -> {
+                PipeMaze.part2()
+            }
+            11 -> {
+                CosmicExpansion.part1()
+                CosmicExpansion.part2()
             }
             else -> {
                 println("unknown day $day")
